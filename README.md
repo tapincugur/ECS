@@ -1,8 +1,8 @@
 # ECS
 ### ECS Start/Stop Jobs Examples
 ```bash
-You can see the scripts below: 
-$ start.sh
-$ stop.sh
+You can run the scripts below: 
+$ ./scripts/start.sh
+$ ./scripts/stop.sh
 ```
 
