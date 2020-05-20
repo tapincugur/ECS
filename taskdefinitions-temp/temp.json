@@ -1,0 +1,46 @@
+{
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "executionRoleArn" : "arn:aws:iam::11111111:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/tsk-project-staging",
+          "awslogs-region": "eu-central-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
+      "environment": [
+                    {
+                      "name": "ACCEPTED_UI_LANGUAGES",
+                      "value": "tr,en"
+                    },
+                    {
+                      "name": "NODE_ENV",
+                      "value": "staging"
+                    }
+      ],
+        "name": "ctn-project-staging",
+        "image": "11111111.dkr.ecr.eu-central-1.amazonaws.com/backoffice-project-staging",
+      "dockerLabels": {
+        "traefik.frontend.rule": "Host:staging-backoffice.project.net",
+        "traefik.backend": "project-backoffice-staging"
+      },
+      "name": "ctn-project-staging"
+    }
+  ],
+  "memory": "512",
+  "family": "tsk-project-staging",
+  "networkMode": "awsvpc",
+  "cpu": "256"
+}
