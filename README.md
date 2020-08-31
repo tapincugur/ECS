@@ -9,3 +9,8 @@ $ ./scripts/stop.sh (00 17 * * *)
 ```bash
 $ aws ecs register-task-definition --cli-input-json file://~/taskdefinitions-temp/temp.json --region eu-central-1 --profile project-dev
 ```
+
+### ECS Deployment Job
+```bash
+$ ./scripts/ecsdeploymentjob.sh
+```
